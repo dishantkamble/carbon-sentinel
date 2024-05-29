@@ -11,7 +11,13 @@ func InitRouter() *gin.Engine {
 	router.Use(gin.Recovery())
 
 	apiV1 := router.Group("/api/v1")
-	apiV1.GET("/ping", v1.Ping)
+	{
+		apiV1.GET("/ping", v1.Ping)
+		jokes := apiV1.Group("/jokes")
+		{
+			jokes.GET("/random", v1.RandomJoke)
+		}
+	}
 
 	return router
 }
