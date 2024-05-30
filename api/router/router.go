@@ -1,7 +1,7 @@
 package router
 
 import (
-	v1 "github.com/dishantkamble/carbon-sentinel/api/v1"
+	v1 "github.com/dishantkamble/carbon-sentinel/router/v1"
 	"github.com/gin-gonic/gin"
 )
 

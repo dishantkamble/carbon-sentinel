@@ -1,0 +1,29 @@
+services:
+  nginx:
+    container_name: nginx
+    build: 
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+      - ui
+    volumes:
+      - ./ui/build:/app/ui/build
+  api:
+    container_name: api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+  ui:
+    container_name: ui
+    build:
+      context: ./ui
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api

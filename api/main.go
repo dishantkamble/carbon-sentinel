@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	router "github.com/dishantkamble/carbon-sentinel/api"
+	router "github.com/dishantkamble/carbon-sentinel/router"
 )
 
 func main() {
@@ -12,7 +12,7 @@ func main() {
 
 	server := &http.Server{
 		Handler: routerInit,
-		Addr:    "0.0.0.0:3000",
+		Addr:    "0.0.0.0:8080",
 	}
 
 	log.Printf("[info] Starting HTTP server")

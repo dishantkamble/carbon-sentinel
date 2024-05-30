@@ -42,6 +42,6 @@ FROM scratch as production
 
   USER nonroot
 
-  EXPOSE 3000
+  EXPOSE 8080
 
   ENTRYPOINT [ "/carbon-sentinel"]
