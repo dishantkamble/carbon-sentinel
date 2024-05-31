@@ -2,7 +2,8 @@ FROM golang:latest as build
 
   WORKDIR /app
 
-  ENV GOOS=linux
+  ENV CGO_ENABLED=1 \
+      GOOS=linux
 
   COPY go.mod go.sum ./
   RUN --mount=type=cache,target=/go/pkg/mod \

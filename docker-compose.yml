@@ -10,20 +10,21 @@ services:
       - api
       - ui
     volumes:
-      - ./ui/build:/app/ui/build
+      - ui-build:/usr/share/nginx/html
   api:
     container_name: api
     build:
       context: ./api
       dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
   ui:
     container_name: ui
     build:
       context: ./ui
       dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
+    volumes:
+      - ui-build:/app/build
     depends_on:
       - api
+
+volumes:
+  ui-build:
