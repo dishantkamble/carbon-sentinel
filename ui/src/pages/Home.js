@@ -1,31 +1,36 @@
 import React, { Fragment } from 'react';
-import { Button, Card, Flex, Space, Typography } from "antd";
+import { Button, Card, Row, Col, Flex } from "antd";
 
-const { Text } = Typography;
+const { Meta } = Card;
 
 const Home = () => {
 
   return (
     <Fragment>
-      <Flex wrap justify="center" gap="middle">
-          <Card title="Estimate" bordered={false}>
-            <Space align="center" block='true' direction="vertical" size="middle">
-              <Text>Know your Carbon footprint</Text>
-              <Button href="/joke" type="primary">Go</Button>
-            </Space>
-          </Card>
-          <Card title="Air Quality" bordered={false}>
-            <Space align="center" block='true' direction="vertical" size="middle">
-              <Text>Know Air Quality around the world</Text>
-              <Button href="/joke" type="primary">Go</Button>
-            </Space>
-          </Card>
-          <Card title="Joke" bordered={false}>
-            <Space align="center" block='true' direction="vertical" size="middle">
-              <Text>Rate our homour</Text>
-              <Button href="/joke">Sure</Button>
-            </Space>
-          </Card>
+      <Flex align="center">
+        <Row gutter={[16, 16]} style={{ width: '100%' }}>
+          <Col span={8}>
+            <Card actions={[
+              <Button href="/joke" type="link">Go</Button>
+            ]}>
+              <Meta title="Estimate" description="Know your Carbon footprint" />
+            </Card>
+          </Col>
+          <Col span={8}>
+            <Card actions={[
+              <Button href="/joke" type="link">Go</Button>
+            ]}>
+              <Meta title="Air Quality" description="Know Air Quality around the world" />
+            </Card>
+          </Col>
+          <Col span={8}>
+            <Card actions={[
+              <Button href="/joke" type="link">Sure</Button>
+            ]}>
+              <Meta title="Joke" description="Rate our homour" />
+            </Card>
+          </Col>
+        </Row>
       </Flex>
     </Fragment>
   );
