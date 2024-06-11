@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ConfigProvider, Typography, FloatButton, Layout, Switch, Flex  } from 'antd';
+import { ConfigProvider, Typography, FloatButton, Layout, Switch, Flex, theme  } from 'antd';
 import { SmileOutlined, SunOutlined, MoonOutlined } from '@ant-design/icons';
 import Joke from './pages/Joke';
 import Home from './pages/Home';
@@ -10,26 +10,29 @@ function App() {
   const { Header, Content, Footer } = Layout;
   const { Title } = Typography;
   const [open, setOpen] = useState(true);
-  const [theme, setTheme] = useState('light');
+  const [currentThemes, setCurrentThemes] = useState([theme.darkAlgorithm, theme.compactAlgorithm]);
+  const [themeBackground, setThemeBackground] = useState('white');
 
   const onClick = (checked) => {
     setOpen(checked);
     console.log('onClick (Open)? = ' + open);
   };
 
-  const changeTheme = (value) => {
-    setTheme(value ? 'dark' : 'light');
+  const changeCurrentThemes = (value) => {
+    setCurrentThemes(value ? [theme.darkAlgorithm, theme.compactAlgorithm] : [theme.defaultAlgorithm, theme.compactAlgorithm]);
+    setThemeBackground(value ? 'black' : 'white');
   };
 
   return (
     <ConfigProvider
       theme={{
+        algorithm: currentThemes,
         components: {
           Layout: {
-            headerBg: 'white',
-            headerColor: 'black',
+            headerBg: themeBackground,
+            // headerColor: 'black',
             headerPadding: `0 24px`,
-            footerBg: 'white',
+            footerBg: themeBackground,
           },
         },
         token: {
@@ -46,7 +49,8 @@ function App() {
             <Switch size='small'
               checkedChildren={<MoonOutlined />}
               unCheckedChildren={<SunOutlined />}
-              onChange={changeTheme} />
+              onChange={changeCurrentThemes} 
+              />
           </Flex>
         </Header>
         <Content style={{
