@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:lts-alpine as build
 
   WORKDIR /app
 
@@ -7,3 +7,9 @@ FROM node:lts-alpine
 
   COPY . .
   RUN npm run build
+
+FROM alpine:latest
+
+  WORKDIR /app
+
+  COPY --from=build /app/build build

@@ -3,5 +3,5 @@
 ## Run
 
 ```
-docker buildx build -t carbon-sentinel . && docker run --rm -itd -p 3000:3000 --name carbon-sentinel-instance carbon-sentinel
+docker-compose down -v --remove-orphans && docker-compose build --no-cache && docker-compose up -d
 ```

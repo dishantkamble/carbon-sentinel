@@ -1,3 +1,3 @@
-const ApiUrlConstant = 'http://localhost:8080/api/v1';
+const ApiUrlConstant = 'http://localhost/api/v1';
 
 export default ApiUrlConstant;

@@ -9,6 +9,7 @@ const Joke = () => {
   const getApi = async () => {
     let api = ApiUrlConstant + '/jokes/random';
 
+    // https://github.com/nodejs/undici
     await fetch(api).then(response => {
       return response.json();
     }).then(data => {

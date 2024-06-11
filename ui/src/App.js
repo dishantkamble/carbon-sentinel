@@ -42,7 +42,7 @@ function App() {
           alignItems: 'center',
         }}>
           <Flex justify="space-between" align="center" flex="auto">
-            <Title>Carbon Sentinel</Title>
+            <Title onClick={event =>  window.location.href='/'}>Carbon Sentinel</Title>
             <Switch size='small'
               checkedChildren={<MoonOutlined />}
               unCheckedChildren={<SunOutlined />}

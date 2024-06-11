@@ -23,8 +23,6 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ui-build:/app/build
-    depends_on:
-      - api
 
 volumes:
   ui-build:
