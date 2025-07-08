@@ -2,7 +2,7 @@ module github.com/dishantkamble/carbon-sentinel
 
 go 1.23.0
 
-toolchain go1.24.4
+toolchain go1.24.5
 
 require (
 	github.com/gin-contrib/cors v1.7.6
